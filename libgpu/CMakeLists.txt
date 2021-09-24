@@ -36,10 +36,6 @@ install(
   COMPONENT dev
 )
 
-if(NOT EXISTS "${PROJECT_SOURCE_DIR}/external/cub")
-  message(FATAL_ERROR "Cannot find the cub Git submodule. Please run `git submodule update --init --recursive`")
-endif()
-
 target_include_directories(galois_gpu PUBLIC
   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external/cub>
   $<INSTALL_INTERFACE:include/galois/gpu/cub>
