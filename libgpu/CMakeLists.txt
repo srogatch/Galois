@@ -36,15 +36,6 @@ install(
   COMPONENT dev
 )
 
-target_include_directories(galois_gpu PUBLIC
-  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external/cub>
-  $<INSTALL_INTERFACE:include/galois/gpu/cub>
-)
-install(
-  DIRECTORY ${PROJECT_SOURCE_DIR}/external/cub
-  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/galois/gpu/cub"
-  COMPONENT dev
-)
 target_compile_definitions(galois_gpu PRIVATE _FORCE_INLINES)
 target_compile_options(galois_gpu PUBLIC "$<$<COMPILE_LANGUAGE:CUDA>:--expt-extended-lambda>")
 set_property(TARGET galois_gpu PROPERTY CUDA_STANDARD 14)
